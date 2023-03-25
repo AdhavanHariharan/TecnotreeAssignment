@@ -11,3 +11,8 @@ module.exports.LOGIN_SUCCESSFULL = "Successfully logged in";
 module.exports.INVALID_BODY = "Please provide phone/email";
 
 module.exports.INVALID_JWT = "Invalid token";
+
+module.exports.ORDER_SAVED_SUCCESSFULLY = "Order created successfully";
+
+module.exports.ORDER_DELETED_SUCCESSFULLY = "Order deleted successfully";
+

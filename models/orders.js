@@ -1,7 +1,11 @@
 const mongoose = require('mongoose')
+const helperUtils = require('../utils/helperUtils');
 
 const orderSchema = mongoose.Schema({
-    _id: mongoose.Schema.Types.ObjectId,
+    _id: {
+        type: mongoose.Schema.Types.ObjectId,
+        default: new mongoose.Types.ObjectId(),
+    },
     orderId: {
         type: String,
         required: true
@@ -14,19 +18,21 @@ const orderSchema = mongoose.Schema({
         type: Number,
         require: true
     },
-    Address: {
+    address: {
         type: Object,
+        require: true
+    },
+    paymentType: {
+        type: String,
         require: true
     },
     createdAt: {
         type: String,
-        default: null,
-    },
-    updatedAt: {
-        type: String,
-    },
+        default: helperUtils.createTimestamp(),
+    }
 }, {
-    strict: false
+    strict: false,
+    versionKey: false 
 })
 
 module.exports = mongoose.model('Orders', orderSchema)

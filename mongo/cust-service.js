@@ -1,4 +1,4 @@
-const mongoStore = require('./store');
+const mongoStore = require('./cust-store');
 
 async function getCustomerByEmail(email) {
     return await mongoStore.getCustomerByEmail(email);

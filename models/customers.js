@@ -27,8 +27,7 @@ const customerSchema = mongoose.Schema({
         default: helperUtils.createTimestamp(),
     },
     updatedAt: {
-        type: Date,
-        default: null,
+        type: Number
     },
 }, {
     strict: false,

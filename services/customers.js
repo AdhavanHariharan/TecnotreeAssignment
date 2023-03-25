@@ -1,7 +1,7 @@
 const jwtUtils = require('../utils/jwtUtils');
 const helperUtils = require('../utils/helperUtils');
 const constants = require('../utils/constantUtils');
-const mongoService = require('../mongo/service');
+const mongoService = require('../mongo/cust-service');
 const errorHandler = require('../errorhandler/generateErrors');
 
 async function signUp(req) {
@@ -18,7 +18,7 @@ async function signUp(req) {
                 customerId: helperUtils.genRandomString(10)
             }
             await mongoService.createCustomer(custData);
-        } catch (error) { console.log("inside")
+        } catch (error) {
             errorHandler.throwError(500, error);
         }
     }

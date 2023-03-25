@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const helperUtils = require('../utils/helperUtils');
 const Customers = require('../models/customers');
 
 async function getCustomerByEmail(email) {
@@ -23,7 +23,8 @@ async function createCustomer(data) {
 }
 
 async function updateCustomer(data, customerId) {
-   return await Customers.findOneAndUpdate({customerId}, {$set: {...data}});
+   data.updatedAt = helperUtils.createTimestamp();
+   return await Customers.findOneAndUpdate({customerId}, {$set: {...data}}, {projection: {password: 0, createdAt: 0, updatedAt: 0, _id: 0}});
 }
 
 module.exports = {

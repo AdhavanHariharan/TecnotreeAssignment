@@ -29,7 +29,7 @@ app.use(wrap(authrorization.verifyToken));
 app.use('/customers', customerRoutes);
 app.use('/orders', orderRoutes);
 
-app.use((err, req, res, next) => {
+app.use((err, req, res, next) => {console.log(err)
     if(err instanceof ValidationError){
         res.status(400).json({
             error: err.validationErrors,
