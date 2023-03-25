@@ -4,13 +4,13 @@ const app = express();
 const handlerUtils = require('../utils/handlerUtils');
 const controller = require('../controllers/orders');
 
-app.post('/v1/create', 
+router.post('/v1/create', 
     handlerUtils.asyncMiddleware(controller.createOrder));
 
-app.delete('/v1/delete', 
+router.delete('/v1/delete', 
     handlerUtils.asyncMiddleware(controller.deleteOrder));
 
-app.get('/v1/details', 
+router.get('/v1', 
     handlerUtils.asyncMiddleware(controller.fetchAllOrders));
 
 module.exports = router;

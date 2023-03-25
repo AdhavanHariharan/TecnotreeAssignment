@@ -1,7 +1,11 @@
 const mongoose = require('mongoose')
+const helperUtils = require('../utils/helperUtils');
 
 const customerSchema = mongoose.Schema({
-    _id: mongoose.Schema.Types.ObjectId,
+    _id: {
+        type: mongoose.Schema.Types.ObjectId,
+        default: new mongoose.Types.ObjectId(),
+    },
     email: {
         type: String,
         required: true
@@ -16,18 +20,19 @@ const customerSchema = mongoose.Schema({
     },
     phone: {
         type: Number,
-        require: true
+        require: false
     },
     createdAt: {
-        type: Date,
-        default: null,
+        type: Number,
+        default: helperUtils.createTimestamp(),
     },
     updatedAt: {
         type: Date,
         default: null,
     },
 }, {
-    strict: false
+    strict: false,
+    versionKey: false 
 })
 
-module.exports = mongoose.model('Customer', customerSchema)
+module.exports = mongoose.model('Customers', customerSchema)

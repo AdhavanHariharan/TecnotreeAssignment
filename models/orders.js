@@ -19,15 +19,14 @@ const orderSchema = mongoose.Schema({
         require: true
     },
     createdAt: {
-        type: Date,
+        type: String,
         default: null,
     },
     updatedAt: {
-        type: Date,
-        default: null,
+        type: String,
     },
 }, {
     strict: false
 })
 
-module.exports = mongoose.model('Order', orderSchema)
+module.exports = mongoose.model('Orders', orderSchema)

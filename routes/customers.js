@@ -3,18 +3,61 @@ const router = express.Router();
 const app = express();
 const handlerUtils = require('../utils/handlerUtils');
 const controller = require('../controllers/customers');
+const validate = require('../utils/validateUtils');
 
-app.post('/v1/singup', 
-    handlerUtils.asyncMiddleware(controller.signup));
+router.post('/v1/signup', 
+    validate({body: singUpSchema()}),
+    handlerUtils.asyncMiddleware(controller.signUp));
 
-app.get('/v1/details', 
+router.post('/v1/login', 
+    validate({body: loginSchema()}),
+    handlerUtils.asyncMiddleware(controller.login));
+
+router.get('/v1', 
     handlerUtils.asyncMiddleware(controller.fetchCustomer));
 
-app.patch('/v1/info', 
+router.patch('/v1', 
     handlerUtils.asyncMiddleware(controller.updateCustomer));
 
-app.get('/v1/fetch-all/details', 
+router.get('/v1/fetch-all', 
     handlerUtils.asyncMiddleware(controller.fetchAllCustomers));
 
+function singUpSchema() {
+    return {
+        type: 'object',
+        properties: {
+            email: {
+                type: 'string',
+            },
+            password: {
+                type: 'string',
+            },
+            phone: {
+                type: 'number',
+            }
+        },
+        required: ['email', 'password'],
+        additionalProperties: true
+    };
+}
+
+function loginSchema() {
+    return {
+        type: 'object',
+        properties: {
+            email: {
+                type: 'string',
+            },
+            password: {
+                type: 'string',
+            },
+            phone: {
+                type: 'number',
+            }
+        },
+        required: ['password'],
+        additionalProperties: false
+    };
+}
 
 module.exports = router;
