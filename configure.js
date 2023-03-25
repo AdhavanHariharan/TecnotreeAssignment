@@ -1,6 +1,8 @@
 require("dotenv").config();
 
 const app = require('./app');
+const mongo = require('./mongo/connection');
+
 const port = process.env.PORT;
 
 app.on('ready', function() {
@@ -10,7 +12,8 @@ app.on('ready', function() {
 });
 
 (async function() {
-    console.log('Initializing app');
+    console.log('Initializing database');
+    await mongo.intializeDatabase();
     app.emit('ready');
 })();
 
