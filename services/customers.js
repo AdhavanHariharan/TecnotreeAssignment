@@ -4,6 +4,8 @@ const constants = require('../utils/constantUtils');
 const mongoService = require('../mongo/cust-service');
 const errorHandler = require('../errorhandler/generateErrors');
 
+const {logger} = require('../logger/config');
+
 async function signUp(req) {
     const Customer = await mongoService.getCustomerByEmail(req.body.email);
     if (Customer) {
@@ -11,6 +13,7 @@ async function signUp(req) {
     } else {
         let encryptedPassword = await jwtUtils.generateEncryptedPassword(req.body.password);
         try {
+            logger.info(`Creating a new account`);
             let custData = {
                 email: req.body.email,
                 password: encryptedPassword,
@@ -19,6 +22,7 @@ async function signUp(req) {
             }
             return await mongoService.createCustomer(custData);
         } catch (error) {
+            logger.error(`Error while creating a new account`);
             errorHandler.throwError(500, error);
         }
     }
@@ -31,18 +35,22 @@ async function login(req){
         errorHandler.throwError(400, constants.INVALID_BODY);
     }
     if(email) {
+        logger.info(`Fetching account by email`);
         var Customer = await mongoService.getCustomerByEmail(email);
     } else {
+        logger.info(`Fetching account by phone`);
         var Customer = await mongoService.getCustomerByPhone(phone);
     }
     
     if (!Customer) {
         errorHandler.throwError(400, constants.EMAIL_NOT_REGISTERED);
     } else {
+        logger.info(`Validating password`);
         let validPassword = await jwtUtils.validatePassword(req.body.password, Customer.password);
         if(!validPassword) {
             errorHandler.throwError(401, constants.INVALID_PWD);
         } else {
+            logger.info(`Generating JWT`);
             let token = jwtUtils.generateJWT({
                 email: Customer.email,
                 customerId: Customer.customerId
@@ -57,6 +65,7 @@ async function fetchCustomer(req){
 }
 
 async function updateCustomer(req){
+    logger.info(`Updating customer ${req.headers.customerId}`);
     if(req.body.password){
         let encryptedPassword = await jwtUtils.generateEncryptedPassword(req.body.password);
         req.body.password = encryptedPassword;

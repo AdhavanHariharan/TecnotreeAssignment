@@ -1,6 +1,8 @@
 const Orders = require('../models/orders');
+const mongoose = require('mongoose')
 
 async function createOrder(data) {
+    data._id = new mongoose.Types.ObjectId();
     let newOrder = new Orders(data);
     return await newOrder.save();
 }

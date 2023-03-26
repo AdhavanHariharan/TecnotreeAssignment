@@ -12,7 +12,7 @@ async function createOrder(req, res){
 
 async function deleteOrder(req, res){
     try {
-        await orderService.deleteOrder(req?.query?.orderId);
+        await orderService.deleteOrder(req);
         res.status(200).json({message: constants.ORDER_DELETED_SUCCESSFULLY});
     } catch (error) {
        res.status(error.statusCode).json({message: error.message});

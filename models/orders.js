@@ -3,8 +3,7 @@ const helperUtils = require('../utils/helperUtils');
 
 const orderSchema = mongoose.Schema({
     _id: {
-        type: mongoose.Schema.Types.ObjectId,
-        default: new mongoose.Types.ObjectId(),
+        type: mongoose.Schema.Types.ObjectId
     },
     orderId: {
         type: String,
