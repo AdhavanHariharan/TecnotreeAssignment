@@ -1,0 +1,275 @@
+{
+	"info": {
+		"_postman_id": "12a92b2c-844c-4f7d-9fe1-2d9ad3c90419",
+		"name": "Local",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "singUp",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"akaash1@gmail.com\",\n    \"password\": \"password\",\n    \"phone\": 9000011111\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/customers/v1/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"customers",
+						"v1",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "loginUsingPhone",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"phone\": 9000011111,\n    \"password\": \"password\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/customers/v1/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"customers",
+						"v1",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "loginUsingEmail",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"akaash@gmail.com\",\n    \"password\": \"password\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/customers/v1/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"customers",
+						"v1",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateCustomer",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFrYWFzaEBnbWFpbC5jb20iLCJjdXN0b21lcklkIjoiZDU1OTUxYzBmMDE2Nzk4MjAzODEiLCJpYXQiOjE2Nzk4MjA0MjEsImV4cCI6MTY4MDE2NjAyMX0.52mdpaf5pKPVAcGV5M0Tv8_cdbvCt_nQ9ygjZ4zY0xM",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"phone\": 9000022222\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/customers/v1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"customers",
+						"v1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCustomer",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFrYWFzaEBnbWFpbC5jb20iLCJjdXN0b21lcklkIjoiZDU1OTUxYzBmMDE2Nzk4MjAzODEiLCJpYXQiOjE2Nzk4MjA0MjEsImV4cCI6MTY4MDE2NjAyMX0.52mdpaf5pKPVAcGV5M0Tv8_cdbvCt_nQ9ygjZ4zY0xM",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/customers/v1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"customers",
+						"v1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllCustomers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/customers/v1/fetch-all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"customers",
+						"v1",
+						"fetch-all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createOrder",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFrYWFzaEBnbWFpbC5jb20iLCJjdXN0b21lcklkIjoiZDU1OTUxYzBmMDE2Nzk4MjAzODEiLCJpYXQiOjE2Nzk4MjA0MjEsImV4cCI6MTY4MDE2NjAyMX0.52mdpaf5pKPVAcGV5M0Tv8_cdbvCt_nQ9ygjZ4zY0xM",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Iphone 13 pro\",\n    \"quantity\": 1,\n    \"paymentType\": \"Online\",\n    \"address\": {\n        \"city\": \"Chennai\",\n        \"state\": \"Tamil Nadu\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/orders/v1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"orders",
+						"v1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteOrder",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFrYWFzaEBnbWFpbC5jb20iLCJjdXN0b21lcklkIjoiZDU1OTUxYzBmMDE2Nzk4MjAzODEiLCJpYXQiOjE2Nzk4MjA0MjEsImV4cCI6MTY4MDE2NjAyMX0.52mdpaf5pKPVAcGV5M0Tv8_cdbvCt_nQ9ygjZ4zY0xM",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/orders/v1/cancel?orderId=791e1679819548",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"orders",
+						"v1",
+						"cancel"
+					],
+					"query": [
+						{
+							"key": "orderId",
+							"value": "791e1679819548"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getOrders",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFrYWFzaEBnbWFpbC5jb20iLCJjdXN0b21lcklkIjoiZDU1OTUxYzBmMDE2Nzk4MjAzODEiLCJpYXQiOjE2Nzk4MjA0MjEsImV4cCI6MTY4MDE2NjAyMX0.52mdpaf5pKPVAcGV5M0Tv8_cdbvCt_nQ9ygjZ4zY0xM",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/orders/v1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"orders",
+						"v1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
