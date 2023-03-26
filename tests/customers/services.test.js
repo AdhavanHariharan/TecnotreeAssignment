@@ -9,9 +9,7 @@ describe('Customers service', function () {
     body: {
       phone: 9000000001
     },
-    headers: {
-
-    }
+    headers: {}
   }
 
   test('signUp - successfully created', async function () {
