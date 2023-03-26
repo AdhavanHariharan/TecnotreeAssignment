@@ -20,7 +20,7 @@ async function createOrder(req) {
 }
 
 async function deleteOrder(orderId){
-    await mongoService.deleteOrder(orderId);
+    return await mongoService.deleteOrder(orderId);
 }
 
 async function fetchAllOrders(customerId){
