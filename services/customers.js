@@ -17,7 +17,7 @@ async function signUp(req) {
                 phone: req.body.phone,
                 customerId: helperUtils.genRandomString(10)
             }
-            await mongoService.createCustomer(custData);
+            return await mongoService.createCustomer(custData);
         } catch (error) {
             errorHandler.throwError(500, error);
         }
@@ -64,7 +64,7 @@ async function updateCustomer(req){
     return await mongoService.updateCustomer(req.body, req.headers.customerId);
 }
 
-async function fetchAllCustomers(req){
+async function fetchAllCustomers(){
     return await mongoService.getAllCustomers();
 }
 
