@@ -4,7 +4,7 @@ module.exports = {
            return Promise.resolve({
             "_id": "641f40505730f03097326505",
             "orderId": "8ca71679769687",
-            "name": "Iphone 13 mini",
+            "name": "The Old Man and the Sea",
             "quantity": 1,
             "address": {
                 "city": "Chennai",
@@ -24,7 +24,7 @@ module.exports = {
             return Promise.resolve({
                 "_id": "641f40505730f03097326505",
                 "orderId": "8ca71679769687",
-                "name": "Iphone 13 mini",
+                "name": "The Old Man and the Sea",
                 "quantity": 1,
                 "address": {
                     "city": "Chennai",
