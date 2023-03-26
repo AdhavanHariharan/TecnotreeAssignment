@@ -15,7 +15,8 @@ describe('Orders service', function () {
                 "state": "Tamil Nadu"
             }
         },
-        headers: {}
+        headers: {},
+        query: {}
     }
 
     test('createOrder - successfully created', async function () {
@@ -34,13 +35,17 @@ describe('Orders service', function () {
 
     test('delete - successfully deleted', async function () {
         console.log('Testing deleteOrder - 1');
-        let result = await orderService.deleteOrder("8ca71679769687");
+        req.body = {};
+        req.query.orderId = "8ca71679769687";
+        let result = await orderService.deleteOrder(req);
         expect(result).toHaveProperty("orderId");
     });
 
     test('delete - failed to delete order', async function () {
         console.log('Testing deleteOrder - 2');
-        let result = await orderService.deleteOrder(null);
+        req.body = {};
+        req.query.orderId = null;
+        let result = await orderService.deleteOrder(req);
         expect(result).toBeNull();
     });
 
